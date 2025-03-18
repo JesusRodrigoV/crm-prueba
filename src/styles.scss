@@ -1,0 +1,169 @@
+// Variables SCSS
+$dark-blue-1: #1a1a2e;
+$dark-blue-2: #16213e;
+$indigo-primary: #6366f1;
+$purple-accent: #a855f7;
+$indigo-light: #a5b4fc;
+$text-dark: #1e293b;
+$text-gray: #64748b;
+$text-white: #ffffff;
+$border-light: #e2e8f0;
+
+// Variables CSS Globales
+:root {
+  // Colores Principales
+  --primary: #{$indigo-primary};
+  --primary-dark: #4f46e5;
+  --accent: #{$purple-accent};
+  --background-dark: #{$dark-blue-1};
+  --background-light: #{$text-white};
+
+  // Textos
+  --text-primary: #{$text-dark};
+  --text-secondary: #{$text-gray};
+  --text-light: #{$indigo-light};
+
+  // Bordes
+  --border-color: #{$border-light};
+
+  // Sistema de Sombras
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --shadow-btn: 0 10px 20px rgba(99, 102, 241, 0.3);
+
+  // Gradientes
+  --gradient-primary: linear-gradient(
+    45deg,
+    #{$indigo-primary},
+    #{$purple-accent}
+  );
+  --gradient-background: linear-gradient(
+    135deg,
+    #{$dark-blue-1} 0%,
+    #{$dark-blue-2} 100%
+  );
+  --gradient-title: linear-gradient(to right, #{$text-white}, #{$indigo-light});
+  --gradient-decorator: linear-gradient(
+    to right,
+    #{$indigo-primary},
+    #{$purple-accent}
+  );
+
+  // Estados y Alertas
+  --warning-color: #f1c40f;
+  --danger-color: #e74c3c;
+  --success-color: #2ecc71;
+  --info-color: #9b59b6;
+}
+
+// Estilos Globales
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--background-light);
+}
+
+.container {
+  min-height: calc(100vh - 120px);
+  margin: 0 auto;
+}
+
+// Utilidades de Botones
+.btn {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &-primary {
+    background: var(--gradient-primary);
+    color: white;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-btn);
+    }
+  }
+
+  &-secondary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+
+    &:hover {
+      background: rgba(99, 102, 241, 0.1);
+    }
+  }
+}
+
+// Utilidades de Sombras
+.shadow {
+  &-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  &-md {
+    box-shadow: var(--shadow-md);
+  }
+  &-lg {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Utilidades de Formas
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+
+  &-1 {
+    background: rgba(99, 102, 241, 0.2);
+  }
+
+  &-2 {
+    background: rgba(168, 85, 247, 0.2);
+  }
+}
+
+// Utilidades de Cards
+.card {
+  background: var(--background-light);
+  border-radius: 20px;
+  padding: 2rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// Utilidades de Texto
+.text {
+  &-gradient {
+    background: var(--gradient-title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+// Media Queries
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+  }
+}

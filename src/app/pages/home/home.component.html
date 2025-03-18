@@ -1,0 +1,22 @@
+<section class="hero">
+  <div class="container">
+    <h1 data-aos="fade-up">Innovación Cuántica para tu Empresa</h1>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Soluciones tecnológicas de última generación que transformarán tu negocio
+    </p>
+  </div>
+</section>
+
+<section class="features">
+  @for (feature of features; track feature.title) {
+    <div
+      class="feature-card"
+      data-aos="fade-up"
+      [attr.data-aos-delay]="$index * 100"
+    >
+      <i [class]="feature.icon"></i>
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </div>
+  }
+</section>

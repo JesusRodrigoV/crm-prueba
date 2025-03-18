@@ -1,0 +1,38 @@
+<div class="product-detail-container">
+  @if (product$ | async; as product) {
+    <div class="product-detail">
+      <div class="product-header">
+        <h1>{{ product.name }}</h1>
+        <p class="description">{{ product.description }}</p>
+      </div>
+
+      <div class="specs-section">
+        <h2>
+          <i class="bx bx-list-check"></i>
+          Características principales
+        </h2>
+        <div class="specs-grid">
+          @for (spec of product.specs; track spec) {
+            <div class="spec-card">
+              <div class="spec-icon">
+                <i class="bx bx-badge-check"></i>
+              </div>
+              <div class="spec-text">{{ spec }}</div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <button class="contact-button">
+          <i class="bx bx-envelope"></i>
+          Contactar ventas
+        </button>
+        <button class="demo-button">
+          <i class="bx bx-play-circle"></i>
+          Solicitar demo
+        </button>
+      </div>
+    </div>
+  }
+</div>

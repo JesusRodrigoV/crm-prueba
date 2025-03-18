@@ -1,0 +1,30 @@
+<section class="products-header">
+  <div class="header-content">
+    <h1>Nuestros Sistemas Tecnológicos</h1>
+    <p>Soluciones cuánticas para la gestión empresarial</p>
+  </div>
+</section>
+
+<div class="products-grid">
+  @for (product of products$ | async; track product.id) {
+    <div class="product-card">
+      <div class="product-icon">
+        <i class="bx bx-cube-alt"></i>
+      </div>
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <ul class="specs-preview">
+        @for (spec of product.specs.slice(0, 2); track spec) {
+          <li>
+            <i class="bx bx-check-circle"></i>
+            <span>{{ spec }}</span>
+          </li>
+        }
+      </ul>
+      <a [routerLink]="['/products', product.id]" class="cta-button">
+        Ver detalles
+        <i class="bx bx-right-arrow-alt"></i>
+      </a>
+    </div>
+  }
+</div>
